@@ -26,8 +26,6 @@ router.get('/search/shows?=:query', (req, res) => res.sendFile(__dirname + "/ind
 router.get('/data/', (req, res) => {
   pool.query('SELECT * FROM product', (err, rows, fields) => {
     if(!err) {
-      //console.log(rows)
-      //results=JSON.parse(JSON.stringify(results))
       res.json(rows)
     } else {
       console.log(err)
@@ -40,8 +38,6 @@ router.get('/data/:producto', async (req, res) => {
   const productoFormateado = producto.replace(/-/g, " ")
   pool.query(`SELECT * from product WHERE category IN (SELECT id FROM category WHERE name = "${productoFormateado}")`, (err, rows, fields) => {
     if (!err) {
-      let filas = JSON.parse(JSON.stringify(rows))
-      //console.log('filas: ', filas)
       res.json(rows)
     } else {
       console.log(err)
@@ -51,13 +47,8 @@ router.get('/data/:producto', async (req, res) => {
 
 router.get('/search', (req, res) => {
   const { producto } = req.query
-  productoFormateado = producto
-  //console.log(productoFormateado)
-
-  pool.query(`SELECT * from product WHERE category IN (SELECT id FROM category WHERE name = "${productoFormateado}")`, (err, rows, fields) => {
+  pool.query(`SELECT * FROM product WHERE name LIKE "%${producto}%"`, (err, rows, fields) => {
     if (!err) {
-      let filas = JSON.parse(JSON.stringify(rows))
-      //console.log('filas: ', filas)
       res.json(rows)
     } else {
       console.log(err)

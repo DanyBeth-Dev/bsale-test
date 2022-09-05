@@ -92,7 +92,7 @@
       const ubicacion = event.target.location.pathname
 
       const filtrado = async (productoDeseado) => {
-        console.log(productoDeseado)
+        //console.log(productoDeseado)
         const allData = await axios.get(`/data${productoDeseado}`)
         //console.log(allData.data)
         let allElements = ''
