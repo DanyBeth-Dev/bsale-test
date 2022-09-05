@@ -20,8 +20,8 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="/">BSALE</a>
       <form class="d-flex" role="search" id="busqueda">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Buscar</button>
       </form>
       <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-controls="offcanvasNavbar">
@@ -65,7 +65,10 @@
   </nav>
 
   <!-- cards -->
-  <div id="cards" class="row"></div>
+  <div class="container text-center">
+    <div id="cards" class="row"></div>
+  </div>
+  
   <template id="card-template">
     <div class="col">
       <div class="card m-2" style="width: 18rem;">
